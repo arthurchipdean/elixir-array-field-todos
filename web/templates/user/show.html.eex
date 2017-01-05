@@ -1,0 +1,28 @@
+<h2>Show user</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Date of birth:</strong>
+    <%= @user.date_of_birth %>
+  </li>
+
+  <li>
+    <strong>Todos:</strong>
+    <%= if @user.todos == nil, do: '', else: Enum.join(@user.todos, ", ") %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: user_path(@conn, :edit, @user) %>
+<%= link "Back", to: user_path(@conn, :index) %>
