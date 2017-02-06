@@ -39,9 +39,12 @@ window.onload = () => {
       let newRow = dataset.prototype;
       container.insertAdjacentHTML("beforeend",       newRow.replace(/__name__/g, index));
       container.dataset.index = parseInt(container.dataset.index) + 1;
-      container.querySelector("a.remove-form-field").onclick = (e) => {
-        removeElement(e);
-      }
+      Array.from(container.querySelectorAll("a.remove-form-field"))
+      .forEach(el => {
+        el.onclick = (e) => {
+          removeElement(e);
+        }
+      })
     }
   });
 }
